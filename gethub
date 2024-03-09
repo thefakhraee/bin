@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+[[ -n ${2-} ]] && chosen=$2
+readarray -t list < <(curl -s https://api.github.com/repos/"${1}"/releases/latest | awk '/browser_download_url/ {print $2}')
+
+[[ -z "${chosen-}" ]] &&
+select item in "${list[@]}"; do
+  echo Downloading "${item}"
+  sleep 1
+  break
+done || item="${list[$chosen]}"
+
+item="${item:1:-1}"
+curl -LO "${item}"
+echo "${item##*/}"

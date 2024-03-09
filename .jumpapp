@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+file=$(gethub mkropat/jumpapp 2 | tail -1)
+tar xjf "${file}" -C ~/.local/bin/ --strip-components=1 jumpapp-1.2/jumpapp &&
+rm -f "${file}"

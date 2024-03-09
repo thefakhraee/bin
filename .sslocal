@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+file=$(gethub shadowsocks/shadowsocks-rust 26 | tail -1)
+tar xJf "${file}" -C ~/.local/bin/ sslocal &&
+rm -f "${file}"

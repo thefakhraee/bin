@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+file=$(gethub imsnif/bandwhich 2 | tail -1)
+tar xzf "${file}" -C ~/.local/bin/ bandwhich &&
+rm -f "${file}"

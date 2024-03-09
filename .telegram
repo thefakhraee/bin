@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+file=$(gethub telegramdesktop/tdesktop 6 | tail -1)
+tar xJf "${file}" -C ~/.local/bin/ --strip-components=1 &&
+rm -f "${file}"

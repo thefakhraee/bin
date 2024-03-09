@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+file=$(gethub twpayne/chezmoi 14 | tail -1)
+chmod +x "${file}" &&
+mv "${file}" ~/.local/bin/chezmoi

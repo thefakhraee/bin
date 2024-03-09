@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+file=$(gethub containerd/nerdctl 3 | tail -1)
+tar xzf "${file}" -C ~/.local/bin/ &&
+rm -f "${file}"
